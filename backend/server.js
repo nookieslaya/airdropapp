@@ -9,9 +9,9 @@ import remindersRoutes from "./routes/reminder.js";
 import cookieParser from "cookie-parser";
 import reflinkRoutes from "./routes/reflinkRoutes.js";
 
-if (process.env.NODE_ENV != 'production') {
+
     dotenv.config()
-}
+
 
 connectDB()
 
