@@ -29,6 +29,7 @@ const login = async (req, res) => {
 
         res.cookie("Authorization", token, {
             expires: new Date(exp),
+            httpOnly: true, secure: true, sameSite: "none"
         })
 
 
