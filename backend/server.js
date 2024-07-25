@@ -32,4 +32,4 @@ app.use('/', usersRoutes)
 app.use('/', reflinkRoutes)
 app.use('/', remindersRoutes)
 
-app.listen(process.env.PORT)
+app.listen(process.env.PORT || 3000 || 5000)

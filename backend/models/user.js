@@ -23,6 +23,9 @@ const userSchema = mongoose.Schema(
         daily:[{
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Daily'}],
+       reminder:[{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Reminder'}],
     },
 
 )
