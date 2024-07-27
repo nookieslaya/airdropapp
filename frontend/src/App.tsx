@@ -9,17 +9,18 @@ import {RequireAuth} from "@/components/RequireAuth.tsx";
 import {LogoutPage} from "@/pages/LogoutPage.tsx";
 import {Dashboard} from "@/pages/Dashboard.tsx";
 import './App.css'
-
+import {Sidebar} from "./components/ui/Sidebar";
 
 function App() {
 
 
 
     return (
-        <div className="text-open-sans bg-background">
+        <div className="text-open-sans">
             <BrowserRouter>
             <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
-                <Navbar/>
+
+{/*<Sidebar />*/}
                 <Routes>
                     <Route index path="/" element={<RequireAuth><Dashboard /></RequireAuth>} />
                     <Route path="/login" element={<LoginPage />} />

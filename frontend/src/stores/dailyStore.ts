@@ -44,8 +44,8 @@ const dailyStore = create((set) => ({
         const res = await axios.post('/daily', createDaily);
         set({
             dailyTask: [...dailyTask, res.data.daily],
-            createFaucet: {
-                name: "", url: '', description:""
+            createDaily: {
+                name: "", url: "", description:""
             },
 
         });

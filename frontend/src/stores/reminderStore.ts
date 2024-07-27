@@ -2,6 +2,15 @@ import {create} from "zustand";
 import axios from "axios";
 import {toast} from "@/components/ui/use-toast.ts";
 
+type Reminder = {
+    _id: string;
+    name: string;
+    url: string;
+    date: string;
+    description: string;
+    color: string;
+    complete: boolean;
+};
 
 const reminderStore = create((set) => ({
     reminders: null,
@@ -31,7 +40,7 @@ const reminderStore = create((set) => ({
             console.log(err)
         }
     },
-    createSingleReminder: async (e) => {
+    createSingleReminder: async (e: React.FormEvent<HTMLFormElement>): Promise<void>  => {
         e.preventDefault();
         const {createReminder, reminders} = reminderStore.getState();
         // Check if the fields are not empty
@@ -49,7 +58,7 @@ const reminderStore = create((set) => ({
             },
         });
         toast({
-            description: "You create new faucet.",
+            description: "You create new Reminder.",
         })
 
 
@@ -69,19 +78,17 @@ const reminderStore = create((set) => ({
 
     deleteReminder: async (_id) => {
         try {
-            await axios.delete(`/reminders/${_id}`)
-            const {reminders} = reminderStore.getState()
-            const newReminder = reminders.filter((reminder) => {
-                return reminder._id !== _id
-            })
+            await axios.delete(`/reminders/${_id}`);
+            set((state) => ({
+                reminders: state.reminders.filter((reminder) => reminder._id !== _id),
+            }));
+            reminderStore.getState().fetchReminders()
             toast({
                 description: "You delete Reminder",
-            })
-            set({reminders: newReminder})
+            });
         } catch (err) {
-            console.log(err)
-        }
-    },
+            console.log(err);
+        }}
 }))
 
 export default reminderStore

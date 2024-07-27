@@ -11,6 +11,7 @@ import {
 import Countdown from "@/components/reminder/Countdown.tsx";
 import {FaTrash} from "react-icons/fa6";
 import {CreateReminder} from "@/components/reminder/CreateReminder.tsx";
+import {TextGenerateEffect} from "../components/ui/textgenerate";
 
 const Reminder = ({reminder}) => {
     const store = reminderStore();
@@ -31,12 +32,12 @@ const Reminder = ({reminder}) => {
                             : new Date(reminder.date) < new Date()
                                 ? 'bg-red-500/10 '
                                 : 'bg-green-600/10 '
-                    }`}>
+                    } h`}>
                         <div className={`bg-${reminder.color}`}>
                             <CardHeader>
                                 <CardTitle>
                                     <div className="flex justify-between items-center">
-                                        <h3>{reminder.name}</h3>
+                                        <h3><TextGenerateEffect words={reminder.name}/></h3>
                                         <div>
                                             <button
                                                 onClick={() => store.deleteReminder(reminder._id)}
@@ -57,7 +58,7 @@ const Reminder = ({reminder}) => {
                                 }`} >
                                     {new Date(reminder.date).toLocaleDateString()}
                                 </p>
-                                <p className="py-2">{reminder.description}</p>
+                                <p className="py-2">TextGenerateEffect words={reminder.description}</p>
                                 <p>{reminder.color}</p>
                                 <p>{reminder.url}</p>
                                 <p>{reminder.complete}</p>

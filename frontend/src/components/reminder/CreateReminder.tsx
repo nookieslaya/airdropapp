@@ -23,7 +23,7 @@ export const CreateReminder= () => {
                 <DialogHeader>
                     <DialogTitle>Create New Reminder</DialogTitle>
                     <DialogDescription>
-                        Create new freminder here
+                        Create new Reminder here
                     </DialogDescription>
                 </DialogHeader>
                 <div className="grid gap-4 py-4">
@@ -49,11 +49,11 @@ export const CreateReminder= () => {
                                    onChange={store.updateCreateFormField}/> <Label className="text-right mt-2">
                                 Reminder date
                             </Label>
-                            <Input className='border bg-secondary text-primary border-black-100 my-2' type="date" name="date"
+                            <Input className='border bg-secondary text-primary border-black-100 my-2' type="datetime-local" name="date"
                                    value={store.createReminder.date}
                                    onChange={store.updateCreateFormField}/>
                             <DialogFooter className='py-6'>
-                                <Button className="py-6" variant="outline" type="submit">Create faucet</Button>
+                                <Button className="py-6" variant="outline" type="submit">Create Reminder</Button>
                             </DialogFooter>
                         </form>
                     </div>

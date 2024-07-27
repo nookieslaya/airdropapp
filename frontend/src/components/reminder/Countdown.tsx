@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import moment from "moment";
 
-const Countdown = ({ date }) => {
+const Countdown = ({ date, className }) => {
     const [countdown, setCountdown] = useState("");
 
     useEffect(() => {
@@ -13,16 +13,16 @@ const Countdown = ({ date }) => {
             const duration = moment.duration(diff);
             const days = duration.days();
             const hours = duration.hours();
-            // const minutes = duration.minutes();
+            const minutes = duration.minutes();
             // const seconds = duration.seconds();
 
-            setCountdown(`${days} days, ${hours} hours`);
+            setCountdown(`${days} days, ${hours} hours ${minutes} minutes`);
         }, 1000);
 
         return () => clearInterval(interval);
     }, [date]);
 
-    return <div className="text-orb ">{countdown}</div>;
+    return <div className={`text-orb ${className}`}>{countdown}</div>;
 };
 
 export default Countdown;

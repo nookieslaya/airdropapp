@@ -46,7 +46,7 @@ const authStore = create((set) => ({
             set({signupForm: {email: "", password: "", }})
             set({loggedIn: true})
         }catch (e) {
-
+            console.log(e)
         }
     },
     signup: async () => {
@@ -59,7 +59,7 @@ const authStore = create((set) => ({
             const res = await axios.post('/signup', signupForm );
            set({signupForm: {email: "", password: "", name: ""}})
         } catch (e) {
-
+            console.log(e)
         }
     },
     checkAuth: async () => {
