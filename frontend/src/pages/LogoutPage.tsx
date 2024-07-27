@@ -23,7 +23,7 @@ export const LogoutPage = () => {
                     setCount((currentCount) => {
                         if (currentCount <= 1) {
                             clearInterval(countDown);
-                            window.location.href = "/login";
+                            window.location.href = "/";
                             return currentCount;
                         }
                         return currentCount - 1;
