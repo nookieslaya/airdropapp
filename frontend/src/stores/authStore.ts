@@ -1,10 +1,25 @@
 import {create} from 'zustand'
 import axios from "axios";
 
+interface AuthStore {
+    loggedIn: boolean | null
+    loginForm: {
+        email: string
+        password: string
+    }
+    signupForm: {
+        email: string
+        password: string
+        name: string
+    }
+    login: () => void
+    signup: () => void
+    updateLoginForm: (e: React.ChangeEvent<HTMLInputElement>) => void
+    updateSignupForm: (e: React.ChangeEvent<HTMLInputElement>) => void
+}
 
 
-
-const authStore = create((set) => ({
+const authStore = create<AuthStore>((set) => ({
     loggedIn: null,
 
 

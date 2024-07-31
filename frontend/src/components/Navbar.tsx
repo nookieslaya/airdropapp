@@ -1,18 +1,7 @@
-import {LogOut, User} from 'lucide-react'
+
 import {NavigationMenu} from '@radix-ui/react-navigation-menu'
 import {Button} from '@/components/ui/button'
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuGroup,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuShortcut,
-    DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
 import {NavigationMenuItem} from './ui/navigation-menu'
-import {ModeToggle} from '../components/ui/mode-toggle'
 import {Link} from 'react-router-dom'
 import authStore from "@/stores/authStore.ts";
 
